@@ -1,0 +1,9 @@
+<h1>
+  {{title}}
+</h1>
+<div>
+  <div *ngFor="let b of beers">
+    <h2> {{b.brand}}</h2>
+    <span> {{b.origin + " " + b.type}}</span>
+  </div>
+</div>
