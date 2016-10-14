@@ -1,0 +1,9 @@
+<h1>
+  {{title}}
+</h1>
+<div>
+  <div *ngFor="let b of bars">
+    <h2> {{b.name}}</h2>
+    <span> {{b.address + " " + b.zipCode + " " + b.city}}</span>
+  </div>
+</div>

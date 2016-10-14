@@ -7,19 +7,19 @@
 import { Injectable } from '@angular/core';
 import { Http, Response} from '@angular/http';
 import { Observable} from 'rxjs/Rx';
-import { Beer } from '../Model/beer';
+import { Bar } from '../Model/bar';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class BeerService{
+export class BarService{
   constructor (private http: Http) {}
 
-  private beersUrl = 'api/beers';
+  private beersUrl = 'api/bars';
 
-  getBeers() : Observable<Beer[]>{
-    var data = this.http.get("api/beers").map((res:Response) => res.json()).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  getBars() : Observable<Bar[]>{
+    var data = this.http.get("api/bars").map((res:Response) => res.json()).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     return data;
   }
 }
