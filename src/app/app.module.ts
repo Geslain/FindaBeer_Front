@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule   } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { BeerComponent } from './Beers/Components/beer.component';
-import { BarComponent } from './Bars/Components/bar.component';
+import { BeerListComponent } from './Beers/Components/beerList.component';
+import { BeerCreateComponent } from './Beers/Components/beerCreate.component';
+import { BarListComponent } from './Bars/Components/barList.component';
+import { BarCreateComponent } from './Bars/Components/barCreate.component';
 import { HomeComponent } from './Home/home.component';
 
 import { BeerService } from './Beers/Services/beer.service';
@@ -15,19 +17,24 @@ import { BarService } from './Bars/Services/bar.service';
 @NgModule({
   declarations: [
     AppComponent,
-    BeerComponent,
-    BarComponent,
+    BeerListComponent,
+    BeerCreateComponent,
+    BarListComponent,
+    BarCreateComponent,
     HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     JsonpModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'beers', component: BeerComponent },
-      { path: 'bars', component: BarComponent }
+      { path: 'beers', component: BeerListComponent },
+      { path: 'beers/add', component: BeerCreateComponent },
+      { path: 'bars', component: BarListComponent },
+      { path: 'bars/add', component: BarCreateComponent }
     ])
   ],
   providers: [BeerService,BarService],

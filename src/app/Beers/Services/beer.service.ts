@@ -5,7 +5,7 @@
  * Created by Gess on 09/10/2016.
  */
 import { Injectable } from '@angular/core';
-import { Http, Response} from '@angular/http';
+import { Http, Response, Headers} from '@angular/http';
 import { Observable} from 'rxjs/Rx';
 import { Beer } from '../Model/beer';
 
@@ -21,5 +21,18 @@ export class BeerService{
   getBeers() : Observable<Beer[]>{
     var data = this.http.get("api/beers").map((res:Response) => res.json()).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     return data;
+  }
+
+  createBeer(beer : Beer): Observable<Beer> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.post(this.beersUrl , JSON.stringify(beer), {
+      headers: headers
+    })
+      .map((res: Response) => {
+        return res.json();
+      })
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 }

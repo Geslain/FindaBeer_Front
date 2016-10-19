@@ -7,11 +7,11 @@ import { BarService } from '../Services/bar.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: '../Template/bar.component.html',
+  templateUrl: '../Template/barList.component.html',
   styleUrls: ['../../app.component.css']
 })
 
-export class BarComponent implements OnInit{
+export class BarListComponent implements OnInit{
 
   title : 'Liste de bars ';
   bars : Bar[];

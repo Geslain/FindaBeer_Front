@@ -1,0 +1,46 @@
+
+<section class="sample-app-content">
+  <h1>
+    {{title}}
+  </h1>
+  <form (ngSubmit)="onSubmit()" #barForm="ngForm">
+    <p>
+      <label>Nom</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="model.name" name="brand"
+             #name="ngModel" >
+    </p>
+    <p>
+      <label>Adresse</label>
+      <input type="text" class="form-control" id="address"
+             required
+             [(ngModel)]="model.address" name="address"
+             #address="ngModel" >
+    </p>
+    <p>
+      <label>Ville</label>
+      <input type="text" class="form-control" id="city"
+             required
+             [(ngModel)]="model.city" name="city"
+             #city="ngModel" >
+    </p>
+    <p>
+      <label>Description</label>
+      <input type="text" class="form-control" id="description"
+             required
+             [(ngModel)]="model.description" name="description"
+             #description="ngModel" >
+    </p>
+    <p>
+      <label>Code postal</label>
+      <input type="text" class="form-control" id="zip_code"
+             required
+             [(ngModel)]="model.zip_code" name="zip_code"
+             #zip_code="ngModel" >
+    </p>
+
+    <p>
+      <button type="submit" class="btn btn-default" [disabled]="!barForm.form.valid">Ajouter</button>    </p>
+  </form>
+</section>

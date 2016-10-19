@@ -7,11 +7,11 @@ import { BeerService } from '../Services/beer.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: '../Template/beer.component.html',
+  templateUrl: '../Template/beerList.component.html',
   styleUrls: ['../../app.component.css']
 })
 
-export class BeerComponent implements OnInit{
+export class BeerListComponent implements OnInit{
 
   title : 'Liste de bieres ';
   beers : Beer[];
