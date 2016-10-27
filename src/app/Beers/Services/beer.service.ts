@@ -48,7 +48,7 @@ export class BeerService{
     headers.append('Content-Type', 'application/json');
 
     return this.http
-      .put(this.beersUrl + beer.id, JSON.stringify(beer), {headers: headers})
+      .put(this.beersUrl + "/"+ beer.id, JSON.stringify(beer), {headers: headers})
       .map((res: Response) => {
         return res.json();
       })

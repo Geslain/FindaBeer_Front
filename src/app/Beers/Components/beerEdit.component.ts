@@ -1,7 +1,7 @@
 /**
  * Created by Gess on 09/10/2016.
  */
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import { Beer } from '../Model/beer';
 import { BeerService } from '../Services/beer.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -11,36 +11,24 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: '../Template/beerEdit.component.html',
   styleUrls: ['../../app.component.css'],
 })
-export class BeerEditComponent implements OnInit{
+export class BeerEditComponent{
 
   title = 'Modifier une bière';
-  beer : Beer ;
+  type = ['blonde', 'brune', 'rousse','ambrée'];
+  beer : Beer;
 
-  constructor(private beerService : BeerService,  private route: ActivatedRoute) {}
-
-  onSubmit() {
-    // this.beerService.updateBeer(this.model).subscribe(
-    //   err => {
-    //     // Log errors if any
-    //     console.log(err);
-    //   });
-  }
-
-
-  ngOnInit() {
-
-    this.loadBeer();
-  }
-
-  loadBeer () {
+  constructor(private beerService : BeerService,  private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       let id = params['id'];
-      this.beerService.getBeer(id)
-        .then(beer => {
-          this.beer = beer;
-          console.log(this.beer)
-        });
+      this.beerService.getBeer(id).subscribe(beer => this.beer = beer);
     });
   }
 
+  onSubmit() {
+    this.beerService.updateBeer(this.beer).subscribe(
+      err => {
+        // Log errors if any
+        console.log(err);
+      });
+  }
 }
