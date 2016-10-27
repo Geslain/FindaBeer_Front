@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BeerListComponent } from './Beers/Components/beerList.component';
+import { BeerEditComponent } from './Beers/Components/beerEdit.component';
+import { BeerGetComponent } from './Beers/Components/beerGet.component';
 import { BeerCreateComponent } from './Beers/Components/beerCreate.component';
 import { BarListComponent } from './Bars/Components/barList.component';
 import { BarCreateComponent } from './Bars/Components/barCreate.component';
@@ -18,6 +20,8 @@ import { BarService } from './Bars/Services/bar.service';
   declarations: [
     AppComponent,
     BeerListComponent,
+    BeerEditComponent,
+    BeerGetComponent,
     BeerCreateComponent,
     BarListComponent,
     BarCreateComponent,
@@ -34,7 +38,9 @@ import { BarService } from './Bars/Services/bar.service';
       { path: 'beers', component: BeerListComponent },
       { path: 'beers/add', component: BeerCreateComponent },
       { path: 'bars', component: BarListComponent },
-      { path: 'bars/add', component: BarCreateComponent }
+      { path: 'bars/add', component: BarCreateComponent },
+      { path: 'beers/:id', component: BeerGetComponent },
+      { path: 'beers/:id/update', component: BeerEditComponent }
     ])
   ],
   providers: [BeerService,BarService],

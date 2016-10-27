@@ -11,7 +11,7 @@ import { BeerService } from '../Services/beer.service';
   styleUrls: ['../../app.component.css']
 })
 
-export class BeerListComponent implements OnInit{
+export class BeerGetComponent implements OnInit{
 
   title : 'Liste de bieres ';
   beers : Beer[];
@@ -27,7 +27,7 @@ export class BeerListComponent implements OnInit{
     // Get all comments
     this.beerService.getBeers()
       .subscribe(
-        beers => {this.beers = beers; console.log(beers)}, //Bind to view
+        beers => this.beers = beers, //Bind to view
         err => {
           // Log errors if any
           console.log(err);
