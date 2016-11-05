@@ -1,0 +1,32 @@
+<h1>
+  {{title}}
+</h1>
+<section class="sample-app-content" *ngIf="beer">
+  <form (ngSubmit)="onSubmit()" #beerForm="ngForm">
+    <p>
+      <label>Marque</label>
+      <input type="text" class="form-control" id="brand"
+             required
+             [(ngModel)]="beer.brand" name="brand"
+             #brand="ngModel" >
+    </p>
+    <p>
+      <label>Type</label>
+      <select class="form-control" id="type" required [(ngModel)]="beer.type" name="type">>
+        <option *ngFor="let p of type" [value]="p">{{p}}</option>
+      </select>
+    </p>
+    <p>
+      <label>Origine</label>
+      <input type="text" class="form-control" id="origin"
+             required
+             [(ngModel)]="beer.origin" name="origin"
+             #origin="ngModel" >
+    </p>
+    <p>
+      <button type="submit" class="btn btn-default" [disabled]="!beerForm.form.valid">Modifier</button>    </p>
+  </form>
+</section>
+<section class="sample-app-content" *ngIf="!beer">
+  Beer Not Found
+</section>
