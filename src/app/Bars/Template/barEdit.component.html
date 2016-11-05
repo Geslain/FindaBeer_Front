@@ -1,0 +1,47 @@
+<h1>
+  {{title}}
+</h1>
+<section class="sample-app-content" *ngIf="bar">
+  <form (ngSubmit)="onSubmit()" #barForm="ngForm">
+    <p>
+      <label>Nom</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="bar.name" name="name"
+             #brand="ngModel" >
+    </p>
+    <p>
+      <label>Description</label>
+      <textarea type="text" class="form-control" id="description"
+             required
+             [(ngModel)]="bar.description" name="description"
+             #brand="ngModel" ></textarea>
+    </p>
+    <p>
+      <label>Adresse</label>
+      <input type="text" class="form-control" id="address"
+             required
+             [(ngModel)]="bar.address" name="address"
+             #origin="ngModel" >
+    </p>
+    <p>
+      <label>Code postal</label>
+      <input type="text" class="form-control" id="zipCode"
+             required
+             [(ngModel)]="bar.zipCode" name="zipCode"
+             #brand="ngModel" >
+    </p>
+    <p>
+      <label>Ville</label>
+      <input type="text" class="form-control" id="city"
+             required
+             [(ngModel)]="bar.city" name="city"
+             #brand="ngModel" >
+    </p>
+    <p>
+      <button type="submit" class="btn btn-default" [disabled]="!barForm.form.valid">Modifier</button>    </p>
+  </form>
+</section>
+<section class="sample-app-content" *ngIf="!bar">
+  Bar Not Found
+</section>

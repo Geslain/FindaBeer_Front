@@ -11,6 +11,8 @@ import { BeerGetComponent } from './Beers/Components/beerGet.component';
 import { BeerCreateComponent } from './Beers/Components/beerCreate.component';
 import { BarListComponent } from './Bars/Components/barList.component';
 import { BarCreateComponent } from './Bars/Components/barCreate.component';
+import { BarEditComponent } from './Bars/Components/barEdit.component';
+import { BarGetComponent } from './Bars/Components/barGet.component';
 import { HomeComponent } from './Home/home.component';
 
 import { BeerService } from './Beers/Services/beer.service';
@@ -25,6 +27,8 @@ import { BarService } from './Bars/Services/bar.service';
     BeerCreateComponent,
     BarListComponent,
     BarCreateComponent,
+    BarEditComponent,
+    BarGetComponent,
     HomeComponent
   ],
   imports: [
@@ -40,7 +44,9 @@ import { BarService } from './Bars/Services/bar.service';
       { path: 'bars', component: BarListComponent },
       { path: 'bars/add', component: BarCreateComponent },
       { path: 'beers/:id', component: BeerGetComponent },
-      { path: 'beers/:id/update', component: BeerEditComponent }
+      { path: 'beers/:id/update', component: BeerEditComponent },
+      { path: 'bars/:id', component: BarGetComponent },
+      { path: 'bars/:id/update', component: BarEditComponent }
     ])
   ],
   providers: [BeerService,BarService],

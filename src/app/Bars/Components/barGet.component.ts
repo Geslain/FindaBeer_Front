@@ -2,25 +2,25 @@
  * Created by Gess on 09/10/2016.
  */
 import { Component, OnInit,} from '@angular/core';
-import { Beer } from '../Model/beer';
-import { BeerService } from '../Services/beer.service';
+import { Bar } from '../Model/bar';
+import { BarService } from '../Services/bar.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: '../Template/beerGet.component.html',
+  templateUrl: '../Template/barGet.component.html',
   styleUrls: ['../../app.component.css']
 })
 
-export class BeerGetComponent {
+export class BarGetComponent {
 
   title : 'Liste de bieres ';
-  beer : Beer;
+  bar : Bar;
 
-  constructor(private beerService : BeerService,  private route: ActivatedRoute) {
+  constructor(private barService : BarService,  private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       let id = params['id'];
-      this.beerService.getBeer(id).subscribe(beer => this.beer = beer);
+      this.barService.getBar(id).subscribe(bar => this.bar = bar);
     });
   }
 }
