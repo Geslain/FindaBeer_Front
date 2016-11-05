@@ -3,7 +3,7 @@
 </h1>
 <div>
   <div *ngFor="let b of bars">
-    <h2> {{b.name}}</h2>
+    <h2><a routerLink="/bars/{{b.id}}">{{b.name}}</a></h2>
     <span> {{b.address + " " + b.zipCode + " " + b.city}}</span>
         <ul>
             <li *ngFor="let beer of b.beers">{{ beer.brand}}</li>

@@ -2,10 +2,11 @@
   {{title}}
 </h1>
 <section class="sample-app-content" *ngIf="beer">
-<div>
-  <div >
-    <h2> {{beer.brand}}</h2>
-    <span> {{beer.origin + " " + beer.type}}</span>
+  <div>
+    <div>
+      <h2> {{beer.brand}}</h2>
+      <span> {{beer.origin + " " + beer.type}}</span>
+    </div>
   </div>
-</div>
-  </section >
+  <a routerLink="/beers/{{beer.id}}/update">Modifier</a>
+</section>

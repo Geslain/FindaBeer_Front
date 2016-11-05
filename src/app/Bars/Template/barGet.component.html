@@ -13,6 +13,7 @@
         <li *ngFor="let beer of bar.beerBar">  <a routerLink="/beers/{{beer.beer.id}}">{{beer.beer.brand}}</a> - {{beer.price}} €</li>
       </ul>
     </div>
+    <a routerLink="/bars/{{bar.id}}/update">Modifier</a>
   </div>
 </section >
 

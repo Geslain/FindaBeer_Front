@@ -4,7 +4,7 @@
 import {Component} from '@angular/core';
 import { Beer } from '../Model/beer';
 import { BeerService } from '../Services/beer.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +14,10 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class BeerEditComponent{
 
   title = 'Modifier une bière';
-  type = ['blonde', 'brune', 'rousse','ambrée'];
+  type = ['Blonde', 'Brune', 'Rousse','Ambrée'];
   beer : Beer;
 
-  constructor(private beerService : BeerService,  private route: ActivatedRoute) {
+  constructor(private beerService : BeerService,  private route: ActivatedRoute, private router : Router) {
     this.route.params.subscribe(params => {
       let id = params['id'];
       this.beerService.getBeer(id).subscribe(beer => this.beer = beer);
@@ -30,5 +30,6 @@ export class BeerEditComponent{
         // Log errors if any
         console.log(err);
       });
+    this.router.navigate(["/beers/" + this.beer.id]);
   }
 }

@@ -4,10 +4,8 @@
 import {Component} from '@angular/core';
 import {Bar} from '../Model/bar';
 import {BarService} from '../Services/bar.service';
-import {ActivatedRoute, Params} from '@angular/router';
-import {Beer} from "../../Beers/Model/beer";
+import {ActivatedRoute, Router} from '@angular/router';
 import {BeerService} from "../../Beers/Services/beer.service";
-import {isUndefined} from "util";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +20,7 @@ export class BarEditComponent {
   selectedBeerId;
   priceBeer;
 
-  constructor(private barService: BarService, private beerService: BeerService, private route: ActivatedRoute) {
+  constructor(private barService: BarService, private beerService: BeerService, private route: ActivatedRoute, private router : Router) {
     this.route.params.subscribe(params => {
       let id = params['id'];
       this.barService.getBar(id).subscribe(bar => this.bar = bar);
@@ -44,6 +42,7 @@ export class BarEditComponent {
         // Log errors if any
         console.log(err);
       });
+    this.router.navigate(["/bars/" + this.bar.id]);
   }
 
   onDeleteBeer(beer) {
@@ -65,6 +64,7 @@ export class BarEditComponent {
         // Log errors if any
         console.log(err);
       });
+    location.reload();
   }
 
   onPriceChange(value) {
