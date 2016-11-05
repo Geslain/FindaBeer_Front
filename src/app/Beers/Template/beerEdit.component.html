@@ -12,7 +12,7 @@
     </p>
     <p>
       <label>Type</label>
-      <select class="form-control" id="type" required [(ngModel)]="beer.type" name="type">>
+      <select class="form-control" id="type" required [(ngModel)]="beer.type" name="type">
         <option *ngFor="let p of type" [value]="p">{{p}}</option>
       </select>
     </p>

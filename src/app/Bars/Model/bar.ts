@@ -8,6 +8,7 @@ export class Bar {
     public address: string,
     public zipCode: string,
     public city:string,
-    public description:string
+    public description:string,
+    public beerBar:any
   ){}
 }
