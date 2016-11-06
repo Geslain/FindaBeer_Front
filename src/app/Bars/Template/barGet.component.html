@@ -16,7 +16,9 @@
   <div class="row">
     <h3>Liste des bières</h3>
     <ul>
-      <li *ngFor="let beer of bar.beerBar">  <a routerLink="/beers/{{beer.beer.id}}">{{beer.beer.brand}}</a> - {{beer.price}} €</li>
+      <li *ngFor="let beer of bar.beerBar">
+        <img class="beer_list" src="Images/beer.png">
+        <a routerLink="/beers/{{beer.beer.id}}">{{beer.beer.brand}}</a> - {{beer.price}} €</li>
     </ul>
     <a routerLink="/bars/{{bar.id}}/update">Modifier</a>
   </div>
