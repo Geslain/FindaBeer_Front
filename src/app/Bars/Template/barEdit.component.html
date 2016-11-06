@@ -39,12 +39,19 @@
              #brand="ngModel">
     </p>
     <h3>Liste des bières</h3>
-    <ul>
-      <li *ngFor="let beer of bar.beerBar" id="beer_{{beer.beer.id}}"><a routerLink="/beers/{{beer.beer.id}}">{{beer.beer.brand}}</a>
-        - {{beer.price}} €
+      <div *ngFor="let beer of bar.beerBar" id="beer_{{beer.beer.id}}">
+        <a routerLink="/beers/{{beer.beer.id}}" class="beersofbar" >
+          <div>
+            <img class="beer_list" src="Images/beer.png">
+            {{beer.beer.brand}} - {{beer.price}} €
+          </div>
+        </a>
         <button type="button" (click)="onDeleteBeer(beer.beer.id)"> Supprimer</button>
-      </li>
-    </ul>
+      </div>
+
+
+
+
     <div class="row">
       <div class="col-md-6">
         <select class="form-control" id="select-beers" [(ngModel)]="beerList" name="beers" (ngModelChange)="updateSelectedValue($event)">
