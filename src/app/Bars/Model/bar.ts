@@ -9,6 +9,8 @@ export class Bar {
     public zipCode: string,
     public city:string,
     public description:string,
-    public beerBar:any
-  ){}
+    public beerBar
+  ){
+    this.beerBar = [];
+  }
 }
