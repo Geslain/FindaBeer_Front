@@ -2,7 +2,10 @@
   {{title}}
 </h1>
 <div>
-  <div *ngFor="let b of bars">
+  <div *ngFor="let b of bars" class="row list">
+    <div class="img-beer">
+      <img src="Images/bar.png">
+    </div>
     <h2><a routerLink="/bars/{{b.id}}">{{b.name}}</a></h2>
     <span> {{b.address + " " + b.zipCode + " " + b.city}}</span>
         <ul>

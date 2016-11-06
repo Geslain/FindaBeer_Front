@@ -14,7 +14,7 @@ import {BeerService} from "../../Beers/Services/beer.service";
 })
 export class BarEditComponent {
 
-  title = 'Modifier une bière';
+  title = 'Modifier un bar';
   bar: Bar;
   beers = [];
   selectedBeerId;
