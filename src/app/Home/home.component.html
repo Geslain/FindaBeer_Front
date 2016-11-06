@@ -1,7 +1,13 @@
 <h2>
   {{title}}
 </h2>
-
+<sebm-google-map id="map" [latitude]="lat" [longitude]="lng" [zoom]="zoom" >
+  <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+  <sebm-google-map-info-window>
+    <strong>InfoWindow content</strong>
+  </sebm-google-map-info-window>
+</sebm-google-map>
+<input type="text" id="autocompleteInput">
 <ul>
   <li>
   <a routerLink="/beers"  routerLinkActive="active">Liste des bières</a>

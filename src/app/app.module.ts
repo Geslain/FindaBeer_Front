@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NgModule,ApplicationRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule   } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
 import { BeerListComponent } from './Beers/Components/beerList.component';
@@ -37,6 +40,11 @@ import { BarService } from './Bars/Services/bar.service';
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
+    CommonModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDFhuPISBr93tC5yh_AX3DDuNpYPfwCGIo',
+      libraries: ['places']
+    }),
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'beers', component: BeerListComponent },
