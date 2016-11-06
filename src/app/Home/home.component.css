@@ -1,0 +1,27 @@
+.sebm-google-map-container {
+  height: 300px;
+}
+
+.or {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 35px;
+}
+
+.choose {
+  padding-top: 20px;
+}
+
+.beer-item div{
+  display: inline-block;
+  padding : 10px;
+}
+
+.bar-item div{
+  display: inline-block;
+  padding : 10px;
+}
+
+.contribute {
+  margin-top: 20px;
+}

@@ -14,6 +14,8 @@ import { BeerService } from '../Services/beer.service';
 export class BeerCreateComponent {
 
   title = 'Ajouter une bière';
+  type = ['blonde', 'brune', 'rousse','ambrée'];
+  myType = this.type[0];
   model = new Beer(0,"","","");
 
   constructor(private beerService : BeerService) {}

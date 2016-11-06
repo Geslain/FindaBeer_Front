@@ -1,0 +1,74 @@
+<h1>
+  {{title}}
+</h1>
+<section class="sample-app-content" *ngIf="bar">
+  <form (ngSubmit)="onSubmit()" #barForm="ngForm">
+    <p>
+      <label>Nom</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="bar.name" name="name"
+             #brand="ngModel">
+    </p>
+    <p>
+      <label>Description</label>
+      <textarea type="text" class="form-control" id="description"
+                required
+                [(ngModel)]="bar.description" name="description"
+                #brand="ngModel"></textarea>
+    </p>
+    <p>
+      <label>Adresse</label>
+      <input type="text" class="form-control" id="address"
+             required
+             [(ngModel)]="bar.address" name="address"
+             #origin="ngModel">
+    </p>
+    <p>
+      <label>Code postal</label>
+      <input type="text" class="form-control" id="zipCode"
+             required
+             [(ngModel)]="bar.zipCode" name="zipCode"
+             #brand="ngModel">
+    </p>
+    <p>
+      <label>Ville</label>
+      <input type="text" class="form-control" id="city"
+             required
+             [(ngModel)]="bar.city" name="city"
+             #brand="ngModel">
+    </p>
+    <h3>Liste des bières</h3>
+      <div *ngFor="let beer of bar.beerBar" id="beer_{{beer.beer.id}}" class="list-group">
+        <div class="list-group-item beersofbar" >
+          <div>
+            <img class="beer_list" src="Images/beer.png">
+            {{beer.beer.brand}} - {{beer.price}} €
+          </div>
+          <button class="btn btn-default" type="button" (click)="onDeleteBeer(beer.beer.id)"> Supprimer</button>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <select class="form-control" id="select-beers" [(ngModel)]="beerList" name="beers" (ngModelChange)="updateSelectedValue($event)">
+          <option *ngFor="let beer of beers"  [value]="beer.id">{{beer.brand}} - {{beer.type}} - {{beer.origin}}</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <input id="price" class="form-control" #price type="number" (change)="onPriceChange(price.value)" value="0" min="0"> €
+        <button class="btn btn-default" type="button" (click)="addBeer()"><i class="glyphicon glyphicon-plus"></i> Ajouter</button>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <a routerLink="/bars/{{bar.id}}" class="btn btn-default">Retour</a>
+        <button type="submit" class="btn btn-default" [disabled]="!barForm.form.valid">Modifier</button>
+      </div>
+    </div>
+  </form>
+</section>
+<section class="sample-app-content" *ngIf="!bar">
+  Bar Not Found
+</section>

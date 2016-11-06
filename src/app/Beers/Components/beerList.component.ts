@@ -8,7 +8,7 @@ import { BeerService } from '../Services/beer.service';
 @Component({
   selector: 'app-root',
   templateUrl: '../Template/beerList.component.html',
-  styleUrls: ['../../app.component.css']
+  styleUrls: ['../Style/beer.component.css']
 })
 
 export class BeerListComponent implements OnInit{
@@ -27,7 +27,7 @@ export class BeerListComponent implements OnInit{
     // Get all comments
     this.beerService.getBeers()
       .subscribe(
-        beers => this.beers = beers, //Bind to view
+        beers => {this.beers = beers; console.log(beers)}, //Bind to view
         err => {
           // Log errors if any
           console.log(err);

@@ -8,12 +8,12 @@ import { BarService } from '../Services/bar.service';
 @Component({
   selector: 'app-root',
   templateUrl: '../Template/barList.component.html',
-  styleUrls: ['../../app.component.css']
+  styleUrls: ['../Style/bar.component.css']
 })
 
 export class BarListComponent implements OnInit{
 
-  title : 'Liste de bars ';
+  title = 'Liste des bars';
   bars : Bar[];
 
   constructor(private barService: BarService) {}

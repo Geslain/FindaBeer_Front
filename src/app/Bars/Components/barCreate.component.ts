@@ -14,7 +14,7 @@ import { BarService } from '../Services/bar.service';
 export class BarCreateComponent {
 
   title = 'Ajouter un bar';
-  model = new Bar(0,"","","","","");
+  model = new Bar(0,"","","","","",{});
 
   constructor(private barService : BarService) {}
 

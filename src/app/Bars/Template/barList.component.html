@@ -1,12 +1,24 @@
-<h1>
-  {{title}}
-</h1>
-<div>
-  <div *ngFor="let b of bars">
-    <h2> {{b.name}}</h2>
-    <span> {{b.address + " " + b.zipCode + " " + b.city}}</span>
-        <ul *ngFor="let beer of b.beers">
-            <li>{{ beer.brand}}</li>
-        </ul>
+<section class="sample-app-content">
+  <h2>
+    {{ title }}
+  </h2>
+  <div>
+    <div class="list-group">
+      <a routerLink="/bars/{{bar.id}}" *ngFor="let bar of bars" class="list-group-item bar-item">
+        <div>
+          <img src="Images/bar.png">
+        </div>
+        <div>
+          <h4>{{bar.name}}</h4>
+          <h5>{{bar.address}}</h5>
+          <h6>{{bar.zipCode}} {{bar.city}}</h6>
+        </div>
+        <div>
+          <h4>Description:</h4><br>
+            {{ bar.description }}
+        </div>
+      </a>
     </div>
-</div>
+  </div>
+  <a routerLink="/" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Retour à l'accueil</a>
+</section>

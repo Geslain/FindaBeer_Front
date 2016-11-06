@@ -2,8 +2,17 @@
   {{title}}
 </h1>
 <div>
-  <div *ngFor="let b of beers">
-    <h2> {{b.brand}}</h2>
-    <span> {{b.origin + " " + b.type}}</span>
+  <div class="list-group" lass="list-group-item">
+    <a routerLink="/beers/{{beer.id}}" *ngFor="let beer of beers" class="list-group-item beer-item">
+      <div>
+        <img src="Images/beer.png">
+      </div>
+      <div>
+        <h4>{{beer.brand}}</h4>
+        <h5>Bière {{beer.type}}</h5>
+        <h6>Origine {{beer.origin}}</h6>
+      </div>
+    </a>
   </div>
+  <a routerLink="/" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Retour à l'accueil</a>
 </div>

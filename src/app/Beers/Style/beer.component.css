@@ -1,0 +1,10 @@
+#price {
+  width: 40px;
+}
+
+.beer-item div{
+  display: inline-block;
+  padding : 10px;
+  height: 140px;
+  vertical-align: top;
+}

@@ -1,0 +1,17 @@
+<h1>
+  {{title}}
+</h1>
+<section class="sample-app-content" *ngIf="beer">
+  <div>
+    <div class="img-beer">
+      <img src="Images/beer.png">
+    </div>
+    <div>
+      <h4>{{beer.brand}}</h4>
+      <h5>Bière {{beer.type}}</h5>
+      <h6>Origine {{beer.origin}}</h6>
+    </div>
+  </div>
+  <a routerLink="/beers/{{beer.id}}/update" class="btn btn-default">Modifier</a>
+  <a routerLink="/beers/" class="btn btn-default">Retour à la liste des bières</a>
+</section>

@@ -11,6 +11,8 @@ import { Beer } from '../Model/beer';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
+
 
 @Injectable()
 export class BeerService{
@@ -23,6 +25,11 @@ export class BeerService{
     return data;
   }
 
+  getBeer(id : number) : Observable<Beer>{
+    var data = this.http.get("api/beers/"+id).map((res:Response) => res.json()).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    return data;
+  }
+
   createBeer(beer : Beer): Observable<Beer> {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -30,6 +37,18 @@ export class BeerService{
     return this.http.post(this.beersUrl , JSON.stringify(beer), {
       headers: headers
     })
+      .map((res: Response) => {
+        return res.json();
+      })
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  updateBeer(beer : Beer): Observable<Beer> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+      .put(this.beersUrl + "/"+ beer.id, JSON.stringify(beer), {headers: headers})
       .map((res: Response) => {
         return res.json();
       })
