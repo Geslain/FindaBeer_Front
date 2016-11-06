@@ -2,6 +2,21 @@
   height: 300px;
 }
 
-#autocompleteInput {
-  width: 300px;
+.or {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 35px;
 }
+
+.choose {
+  padding-top: 20px;
+}
+
+.beer-item div{
+  display: inline-block;
+}
+
+.bar-item div{
+  display: inline-block;
+}
+

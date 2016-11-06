@@ -1,24 +1,73 @@
 <h2>
   {{title}}
 </h2>
-<sebm-google-map id="map" [latitude]="lat" [longitude]="lng" [zoom]="zoom" >
-  <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
-  <sebm-google-map-info-window>
-    <strong>InfoWindow content</strong>
-  </sebm-google-map-info-window>
-</sebm-google-map>
-<input type="text" id="autocompleteInput">
-<ul>
-  <li>
-  <a routerLink="/beers"  routerLinkActive="active">Liste des bières</a>
-  </li>
-  <li>
-    <a routerLink="/bars"  routerLinkActive="active">Liste des bars</a>
-  </li>
-  <li>
-    <a routerLink="/beers/add"  routerLinkActive="active">Ajouter une bière</a>
-  </li>
-  <li>
-    <a routerLink="/bars/add"  routerLinkActive="active">Ajouter un bar</a>
-  </li>
-</ul>
+<div class="form-group">
+  <input id="autocompleteInput" placeholder="Rechercher un bar" autocorrect="off" autocapitalize="off"
+         spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+</div>
+<!--<sebm-google-map [userLatitude]="userLatitude" [userLongitude]="userLongitude" [scrollwheel]="false" [zoom]="zoom">-->
+  <!--<sebm-google-map-marker [userLatitude]="userLatitude" [userLongitude]="userLongitude"></sebm-google-map-marker>-->
+<!--</sebm-google-map>-->
+<div id="map" style="height: 300px"></div>
+<div class="row choose">
+  <div class="col-md-5">
+    <form>
+      <label>Choisissez un bar</label>
+      <select class="form-control" id="select-bars" [(ngModel)]="barList" name="bars"
+              (ngModelChange)="changeBar($event)">
+        <option *ngFor="let bar of bars" [value]="bar.id">{{bar.name}} - {{bar.address}} {{bar.zipCode}} {{bar.city}}</option>
+      </select>
+    </form>
+  </div>
+  <div class="col-md-2 or">
+    OU
+  </div>
+  <div class="col-md-5">
+    <form>
+      <label>Choisissez une bière</label>
+      <select class="form-control" id="select-beers" [(ngModel)]="beerList" name="beers"
+              (ngModelChange)="changeBeer($event)">
+        <option *ngFor="let beer of beers" [value]="beer.id">{{beer.brand}} - {{beer.type}} - {{beer.origin}}</option>
+      </select>
+    </form>
+  </div>
+
+</div>
+<div class="row choose">
+  <div class="col-md-6">
+    <div class="page-header">
+      <h3>Les derniers bars</h3>
+    </div>
+    <div class="list-group">
+      <a routerLink="/bars/{{bar.id}}" *ngFor="let bar of barsNew" class="list-group-item bar-item">
+        <div>
+          <img src="Images/bar.png">
+        </div>
+        <div>
+          <h4>{{bar.name}}</h4>
+          <h5>{{bar.address}}</h5>
+          <h6>{{bar.zipCode}} {{bar.city}}</h6>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="page-header">
+      <h3>Les dernières bières</h3>
+    </div>
+    <div class="list-group" lass="list-group-item">
+      <a routerLink="/beers/{{beer.id}}" *ngFor="let beer of beersNew" class="list-group-item beer-item">
+        <div>
+          <img src="Images/beer.png">
+        </div>
+        <div>
+          <h4>{{beer.brand}}</h4>
+          <h5>Bière {{beer.type}}</h5>
+          <h6>Origine {{beer.origin}}</h6>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
