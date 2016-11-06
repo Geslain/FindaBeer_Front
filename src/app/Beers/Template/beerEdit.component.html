@@ -24,6 +24,7 @@
              #origin="ngModel" >
     </p>
     <p>
+      <a routerLink="/beers/{{beer.id}}" class="btn btn-default">Retour</a>
       <button type="submit" class="btn btn-default" [disabled]="!beerForm.form.valid">Modifier</button>    </p>
   </form>
 </section>

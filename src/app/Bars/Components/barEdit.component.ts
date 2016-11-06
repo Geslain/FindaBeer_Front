@@ -37,6 +37,7 @@ export class BarEditComponent {
   }
 
   onSubmit() {
+    this.bar.beerBar = [];
     this.barService.updateBar(this.bar).subscribe(
       err => {
         // Log errors if any

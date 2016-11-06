@@ -8,22 +8,24 @@
     </div>
     <div class="col-md-10">
       <h2> {{bar.name}}</h2>
-      <h3> {{ bar.description }}</h3>
-      <span> {{bar.address + " " + bar.zipCode}}</span>
-      <span> {{bar.city}}</span>
+      <h5>{{bar.address}}</h5>
+      <h6>{{bar.zipCode}} {{bar.city}}</h6>
     </div>
   </div>
   <div class="row">
+    <h3>Description</h3>
+    <p>{{ bar.description }}</p>
     <h3>Liste des bières</h3>
-    <a routerLink="/beers/{{beer.beer.id}}"  *ngFor="let beer of bar.beerBar" class="beersofbar">
-      <div>
-        <img class="beer_list" src="Images/beer.png">
-        {{beer.beer.brand}} - {{beer.price}} €
-      </div>
-    </a>
-    <p>
-      <a routerLink="/bars/{{bar.id}}/update">Modifier</a>
-    </p>
+    <div class="list-group">
+      <a routerLink="/beers/{{beer.beer.id}}"  *ngFor="let beer of bar.beerBar" class="list-group-item beersofbar">
+        <div>
+          <img class="beer_list" src="Images/beer.png">
+          {{beer.beer.brand}} - {{beer.price}} €
+        </div>
+      </a>
+    </div>
+    <a routerLink="/bars/{{bar.id}}/update" class="btn btn-default">Modifier</a>
+    <a routerLink="/bars/" class="btn btn-default">Retour à la liste des bars</a>
   </div>
 </section >
 

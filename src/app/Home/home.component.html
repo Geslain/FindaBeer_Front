@@ -6,7 +6,7 @@
          spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
 </div>
 <!--<sebm-google-map [userLatitude]="userLatitude" [userLongitude]="userLongitude" [scrollwheel]="false" [zoom]="zoom">-->
-  <!--<sebm-google-map-marker [userLatitude]="userLatitude" [userLongitude]="userLongitude"></sebm-google-map-marker>-->
+<!--<sebm-google-map-marker [userLatitude]="userLatitude" [userLongitude]="userLongitude"></sebm-google-map-marker>-->
 <!--</sebm-google-map>-->
 <div id="map" style="height: 300px"></div>
 <div class="row choose">
@@ -15,7 +15,8 @@
       <label>Choisissez un bar</label>
       <select class="form-control" id="select-bars" [(ngModel)]="barList" name="bars"
               (ngModelChange)="changeBar($event)">
-        <option *ngFor="let bar of bars" [value]="bar.id">{{bar.name}} - {{bar.address}} {{bar.zipCode}} {{bar.city}}</option>
+        <option *ngFor="let bar of bars" [value]="bar.id">{{bar.name}} - {{bar.address}} {{bar.zipCode}} {{bar.city}}
+        </option>
       </select>
     </form>
   </div>
@@ -50,11 +51,11 @@
           <h6>{{bar.zipCode}} {{bar.city}}</h6>
         </div>
       </a>
-      <div>
-        <h4>Ou accéder à la liste complète des bars  <a routerLink="/bars">
-          C'est ici !
-        </a></h4>
-      </div>
+    </div>
+    <div>
+      <h4>Ou accéder à la liste complète des bars <a routerLink="/bars">
+        C'est ici !
+      </a></h4>
     </div>
   </div>
 
@@ -62,7 +63,7 @@
     <div class="page-header">
       <h3>Les dernières bières</h3>
     </div>
-    <div class="list-group" lass="list-group-item">
+    <div class="list-group">
       <a routerLink="/beers/{{beer.id}}" *ngFor="let beer of beersNew" class="list-group-item beer-item">
         <div>
           <img src="Images/beer.png">
@@ -75,7 +76,7 @@
       </a>
     </div>
     <div>
-      <h4>Ou accéder à la liste complète des bières  <a routerLink="/beers">
+      <h4>Ou accéder à la liste complète des bières <a routerLink="/beers">
         C'est là !
       </a></h4>
     </div>
@@ -84,24 +85,26 @@
 
 <div class="row contribute">
   <div class="col-md-12">
-    <h2> Vous aimez l'application et vous souhaitez apporter votre Bière à l'édifice ? </h2>
+    <h2> Vous aimez l'application et vous souhaitez apporter votre <b><u>Bière</u></b> à l'édifice ? </h2>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
     <div class="page-header">
-      <h3><a routerLink="/bars/add">
+      <a routerLink="/bars/add" class="btn btn-default btn-lg">
+        <i class="glyphicon glyphicon-plus"></i>
         Ajouter un nouveau Bar
-      </a></h3>
+      </a>
     </div>
   </div>
 
   <div class="col-md-6">
     <div class="page-header">
-      <h3><a routerLink="/beers/add">
+      <a routerLink="/beers/add" class="btn btn-default btn-lg">
+        <i class="glyphicon glyphicon-plus"></i>
         Ajouter une nouvelle Bière
-      </a></h3>
+      </a>
     </div>
   </div>
 

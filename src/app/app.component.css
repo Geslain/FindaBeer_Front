@@ -15,22 +15,3 @@
 .list {
   margin-bottom: 20px;
 }
-
-.beer_list {
-  width: 30px;
-  height: auto;
-}
-
-.beersofbar {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-  margin-bottom: -1px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  max-width: 250px;
-}
-
-.beersofbar:hover {
-  background-color: #ddd;
-}

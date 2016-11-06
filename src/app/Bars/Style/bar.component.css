@@ -1,3 +1,46 @@
 #price {
-  width: 40px;
+  width: 80px;
+  display: inline-block;
+}
+
+.bar-item div{
+  display: inline-block;
+  padding : 10px;
+  height: 140px;
+  vertical-align: top;
+}
+
+.bar-item div:nth-child(2) {
+  width: 300px;
+  border-right: 1px solid lightgrey;
+  border-left : 1px solid lightgrey;
+}
+
+.beersofbar {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  max-width: 400px;
+}
+
+.beersofbar:hover {
+  background-color: #ddd;
+}
+
+.beer_list {
+  width: 30px;
+  height: auto;
+}
+
+.beersofbar > * {
+  display: inline-block;
+  padding: 10px;
+}
+
+.beersofbar > button {
+  float: right;
+  margin-top: 5px;
 }

@@ -39,18 +39,15 @@
              #brand="ngModel">
     </p>
     <h3>Liste des bières</h3>
-      <div *ngFor="let beer of bar.beerBar" id="beer_{{beer.beer.id}}">
-        <a routerLink="/beers/{{beer.beer.id}}" class="beersofbar" >
+      <div *ngFor="let beer of bar.beerBar" id="beer_{{beer.beer.id}}" class="list-group">
+        <div class="list-group-item beersofbar" >
           <div>
             <img class="beer_list" src="Images/beer.png">
             {{beer.beer.brand}} - {{beer.price}} €
           </div>
-        </a>
-        <button type="button" (click)="onDeleteBeer(beer.beer.id)"> Supprimer</button>
+          <button class="btn btn-default" type="button" (click)="onDeleteBeer(beer.beer.id)"> Supprimer</button>
+        </div>
       </div>
-
-
-
 
     <div class="row">
       <div class="col-md-6">
@@ -59,15 +56,17 @@
         </select>
       </div>
       <div class="col-md-6">
-        <input id="price" #price type="number" (change)="onPriceChange(price.value)" value="0" min="0"> €
-        <button type="button" (click)="addBeer()">Ajouter</button>
+        <input id="price" class="form-control" #price type="number" (change)="onPriceChange(price.value)" value="0" min="0"> €
+        <button class="btn btn-default" type="button" (click)="addBeer()"><i class="glyphicon glyphicon-plus"></i> Ajouter</button>
       </div>
     </div>
-
-
-    <p>
-      <button type="submit" class="btn btn-default" [disabled]="!barForm.form.valid">Modifier</button>
-    </p>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <a routerLink="/bars/{{bar.id}}" class="btn btn-default">Retour</a>
+        <button type="submit" class="btn btn-default" [disabled]="!barForm.form.valid">Modifier</button>
+      </div>
+    </div>
   </form>
 </section>
 <section class="sample-app-content" *ngIf="!bar">

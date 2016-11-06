@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: '../Template/barGet.component.html',
-  styleUrls: ['../../app.component.css']
+  styleUrls: ['../Style/bar.component.css']
 })
 
 export class BarGetComponent {

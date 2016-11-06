@@ -14,10 +14,12 @@
 
 .beer-item div{
   display: inline-block;
+  padding : 10px;
 }
 
 .bar-item div{
   display: inline-block;
+  padding : 10px;
 }
 
 .contribute {
